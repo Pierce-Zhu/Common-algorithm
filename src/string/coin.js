@@ -17,5 +17,5 @@ function format(num){
 //方法二
 function format (num) {  
     var reg=/\d{1,3}(?=(\d{3})+$)/g;   
-    return (num + '').replace(reg, '$&,');  
+    return (num + '').replace(reg, '$&,');  // $& 表示与正则表达式相匹配的内容，具体的使用可以查看字符串replace()方法的
 }
