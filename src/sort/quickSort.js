@@ -16,3 +16,9 @@ const quickSort = (arr) => {
     }
     return quickSort(arrLeft).concat(numTemp, quickSort(arrRight));
 }
+
+// 稳定：否
+// 时间复杂度
+// 最优：O(nlog(n))
+// 最差：O(n^2)
+// 平均：O(nlog(n))

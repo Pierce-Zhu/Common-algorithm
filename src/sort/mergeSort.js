@@ -31,3 +31,10 @@ var arr=[-11,17,12,19,0,-222];
     }
 
  document.write(mergeSort(arr,0,arr.length-1));
+
+
+//  稳定：是
+// 时间复杂度：
+// 最优：O(nlog(n))
+// 最差：O(nlog(n))
+// 平均：O(nlog(n))
