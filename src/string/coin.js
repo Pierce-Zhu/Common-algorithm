@@ -19,3 +19,36 @@ function format (num) {
     var reg=/\d{1,3}(?=(\d{3})+$)/g;   
     return (num + '').replace(reg, '$&,');  // $& 表示与正则表达式相匹配的内容，具体的使用可以查看字符串replace()方法的
 }
+
+
+ // 方法三
+ function currency(num, dot) { //格式化货币 000,000,000方式显示
+    if (dot === 0) {
+        num = Number(num).toFixed(0);
+    } else {
+        dot = dot || 2;
+        num=''+num;
+        if(num.indexOf(".")>0 && num.length>num.indexOf(".")+dot){
+            num=num.substring(0,num.indexOf(".")+dot+1);
+        }else{
+            num = Number(num).toFixed(dot);
+        }
+    }
+    var n = '' + num;
+    var r = n.replace(/(^|-|\s)\d+(?=\.?\d*($|\s))/g, function(m) {
+        return m.replace(/(?=(?!\b)(\d{3})+$)/g, ',');
+    });
+    if (dot === 0) {
+        return r;
+    } else {
+        var i = r.indexOf('.');
+        if (i >= 0) return r.substring(0, i + 1 + dot);
+        else {
+            r += '.';
+            for (var i = dot; i > 0; dot--) {
+                r += '0';
+            };
+            return r;
+        }
+    }
+}
